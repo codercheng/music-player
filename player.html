@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Enjoy Music</title>		
+<style>
+	body{
+  		font-family: sans-serif，Verdana, Arial, Helvetica;
+  		font-size: 10pt;
+  		text-align: center;
+  		background: #FFF8DC;
+		}
+	p {
+		text-align: left;
+	}
+	#playlist {
+		border-radius: 10px;
+		padding: 5px 5px 0px px;
+		width: 296px;
+		margin-left: auto;
+		margin-right: auto;
+		height: 506px;
+		overflow: auto;
+	}
+	#btn {
+		border-radius: 8px;
+		width: 300px;
+		margin-left: auto;
+		margin-right:  auto;
+		margin-top: 3px;
+		height: 50px;
+		cursor: pointer;
+		background: #D3D3D3;
+		font-weight: bold;
+		color: black;
+	}
+	#btn:hover {
+		background: #AAAAAA;
+		color: white;
+		border-radius: 10px;
+	}
+    #playlist a {
+		display: block;
+		cursor: pointer;
+		padding: 2px 10px;
+		border-radius: 10px;
+		overflow: hidden;
+		margin-bottom: 2px;
+		text-align: left;
+	}
+	#playlist a.file { background: #66CDAA;}
+	
+	#playlist { background: #3CB371; }
+	#playlist a { background: #7CCD7C; }
+	#playlist a.playing { background: #AAAAAA; font-weight: bold; color: white;}
+	#playlist a:hover { background: #AAAAAA; color: white; border-radius: 20px;}
+			
+</style>
+<script src="jquery-1.8.0.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+var root = "/music/";
+var path = [];
+
+$(document).ready(
+	function (){
+		load(path);
+		$('#player').bind('ended', next);
+	}
+);
+
+function load(path)  {
+	var url = root+path.join('/');
+	$.ajax({
+			url: url,
+			dataType: "json",
+			success: function(data) {
+				listFile(data)
+			}
+		});
+}
+
+function listFile(files) {
+	var $b = $('#playlist').empty();
+	function addToList(i, f) {
+		if (f.Name[0] == '.' || f.Name[0] == ':') return;
+    	var dir = f.IsDir;
+		if(dir) return;
+		f.Path = path.join('/');
+		$('<a></a>').text(f.Name).data('file', f)
+			.addClass("file")
+			.appendTo($b)
+			.click(clickFile);
+	}
+	$.each(files, addToList);
+}
+
+function clickFile(e) {
+	var f = $(e.target).data('file');
+	var name = f.Name;
+	var path = f.Path;
+	var url = root+path+'/'+name;
+	$('#playlist a').removeClass('playing');
+	$(e.target).addClass('playing')
+	$('#player').attr('src', url);
+}
+
+
+function next() {
+	var $next = $('#playlist a.playing').next();
+	if ($next.length) $next.click();
+}
+
+</script>
+	</head>
+	<body>
+		<audio id="player" controls autoplay autobuffer >
+		<p>What? Your browser doesn't support</p>
+		</audio>
+		<div id="playlist"></div>
+		<BUTTON id ="btn" onClick = "next()" title = "skip this song!">NEXT</BUTTON>
+	</body>
+</html>
