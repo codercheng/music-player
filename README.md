@@ -11,7 +11,7 @@ How to
 ```shell
 go run player.go [port] [music folder path]
 ```
-  * e.g. go run player.go 8080 ./music       the `music` folder contains the music files(.mp3, .wma ...)
+  * for example,  `go run player.go 8080 ./music`, the `music` folder contains the music files(.mp3, .wma ...)
 
   * open `localhost:8080` in a browser which suport html5, chrome highly recommended
 
