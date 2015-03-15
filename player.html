@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8" />
-		<title>Enjoy Music</title>		
+		<title>Music | Coder.Cheng</title>
+   		<meta  charset="UTF-8">
+  		<link href="http://libs.baidu.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+   		<script src="http://libs.baidu.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	
 <style>
-	body{
-  		font-family: sans-serif，Verdana, Arial, Helvetica;
-  		font-size: 10pt;
-  		text-align: center;
-  		background: #FFF8DC;
-		}
+	body {
+	  text-align: center;
+	  font-family: Georgia;
+	  font-size: 10pt;
+  	  
+	}
+	a {text-decoration:none; }
+	a:focus {
+	    outline:none;
+	    -moz-outline:none;
+	 }
 	p {
+		color: grey;
 		text-align: left;
 	}
+	hr {
+		border:0;background-color:#FF4040;height:4px;
+	}
+
+    ::selection{color:#fff; background:#FF7256;}
+    ::-moz-selection{color:#fff;background:#FF7256;}
+    ::-webkit-selection{color:#fff;background:#FF7256;}
+   
 	#playlist {
 		border-radius: 10px;
 		padding: 5px 5px 0px px;
@@ -32,7 +50,7 @@
 		cursor: pointer;
 		background: #D3D3D3;
 		font-weight: bold;
-		color: black;
+		color: blue;
 	}
 	#btn:hover {
 		background: #AAAAAA;
@@ -113,11 +131,88 @@ function next() {
 
 </script>
 	</head>
+
 	<body>
+
+
+<div class="container-fluid">
+   <div class="row-fluid">
+
+   	    <div class="span8">
+	          <a href=" index.html" style="text-decoration:none; ">
+	            <button class="btn btn-danger btn-block btn-large" type="button">Coder.Cheng</button>
+	          </a>
+
+	         <ul class="nav nav-tabs">
+	            <li >
+	               <a href="home.html">HOME</a>
+	            </li>
+	            <li>
+	               <a href="project.html">PROJECT</a>
+	            </li>
+	            <li class="disabled">
+	               <a href="#">BLOG</a>
+	            </li>
+	            <li>
+	                  <a href="ajax.html">Chat Room</a>
+	            </li>
+				<li>
+					<a href="task.html">Task</a>
+				</li>
+				<li class="active">
+					<a href="#">Music</a>
+				</li>
+	            <li class="dropdown pull-right">
+	               <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE>></a>
+	               <ul class="dropdown-menu">
+	                  <li>
+	                     <a href="https://github.com/codercheng/" target="github">GITHUB</a>
+	                  </li>
+	                  <li>
+	                     <a href="http://weibo.com/shuguangcheng" target="weibo">WEIBO</a>
+	                  </li>
+	                  <li class="divider">
+	                  </li>
+	                  <li>
+	                     <a href="index.html">START PAGE</a>
+	                  </li>
+	               </ul>
+	            </li>
+	         </ul>
+
+	         <br/>
+	         <hr/>
+
+        </div>
+
+ 
 		<audio id="player" controls autoplay autobuffer >
 		<p>What? Your browser doesn't support</p>
 		</audio>
 		<div id="playlist"></div>
-		<BUTTON id ="btn" onClick = "next()" title = "skip this song!">NEXT</BUTTON>
+		<BUTTON id ="btn"  onClick = "next()" title = "skip this song!">NEXT</BUTTON>
+	
+
+		<br/>
+	    <hr/>
+
+	   
+		<div style="height:30px; margin-top:10px;">
+		  <p2 style="color: grey;">Powered by
+		     <a style="color: grey; " href="https://github.com/codercheng/sparrow" target="github_sparrow">
+		     Sparrow V0.1
+		     </a>
+		  </p2>
+		</div>
+
+
+	</div>
+
+	
+</div>
+
+
 	</body>
+
+
 </html>
