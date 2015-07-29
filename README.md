@@ -5,7 +5,7 @@ a simple music player: Golang for the back-end, html5 and jQuery for the front-e
 
 demo
 ===========
-* [@online music player](http://chengshuguang.com:8080)
+* [@online music player](http://music.chengshuguang.com)
 
 How to
 ============
